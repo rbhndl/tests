@@ -1,0 +1,415 @@
+ISO/IEC 14882:2003(E)
+ 
+Contents
+ 
+1 General [intro] 1
+1.1 Scope [intro.scope] 1
+1.2 Normative references [intro.refs] 1
+1.3 Terms and definitions [intro.defs] 1
+1.3.1 argument [defns.argument] 1
+1.3.2 diagnostic message [defns.diagnostic] 2
+1.3.3 dynamic type [defns.dynamic.type] 2
+1.3.4 ill-formed program [defns.ill.formed] 2
+1.3.5 implementation-defined behavior [defns.impl.defined] 2
+1.3.6 implementation limits [defns.impl.limits] 2
+1.3.7 locale-specific behavior [defns.locale.specific] 2
+1.3.8 multibyte character [defns.multibyte] 2
+1.3.9 parameter [defns.parameter] 2
+1.3.10 signature [defns.signature] 2
+1.3.11 static type [defns.static.type] 2
+1.3.12 undefined behavior [defns.undefined] 2
+1.3.13 unspecified behavior [defns.unspecified] 3
+1.3.14 well-formed program [defns.well.formed] 3
+1.4 Implementation compliance [intro.compliance] 3
+1.5 Structure of this International Standard [intro.structure] 4
+1.6 Syntax notation [syntax] 4
+1.7 The C++ memory model [intro.memory] 4
+1.8 The C++ object model [intro.object] 4
+1.9 Program execution [intro.execution] 5
+1.10 Acknowledgments [intro.ack] 8
+
+2 Lexical conventions [lex] 9
+2.1 Phases of translation [lex.phases] 9
+2.2 Character sets [lex.charset] 10
+2.3 Trigraph sequences [lex.trigraph] 11
+2.4 Preprocessing tokens [lex.pptoken] 11
+2.5 Alternative tokens [lex.digraph] 12
+2.6 Tokens [lex.token] 12
+2.7 Comments [lex.comment] 12
+2.8 Header names [lex.header] 13
+2.9 Preprocessing numbers [lex.ppnumber] 13
+2.10 Identifiers [lex.name] 13
+2.11 Keywords [lex.key] 14
+2.12 Operators and punctuators [lex.operators] 15
+2.13 Literals [lex.literal] 15
+2.13.1 Integer literals [lex.icon] 15
+2.13.2 Character literals [lex.ccon] 16
+2.13.3 Floating literals [lex.fcon] 18
+2.13.4 String literals [lex.string] 19
+2.13.5 Boolean literals [lex.bool] 19
+
+3 Basic concepts [basic] 21
+3.1 Declarations and definitions [basic.def] 21
+3.2 One definition rule [basic.def.odr] 22
+3.3 Declarative regions and scopes [basic.scope] 24
+3.3.1 Point of declaration [basic.scope.pdecl] 25
+3.3.2 Local scope [basic.scope.local] 26
+3.3.3 Function prototype scope [basic.scope.proto] 26
+3.3.4 Function scope [basic.funscope] 27
+3.3.5 Namespace scope [basic.scope.namespace] 27
+3.3.6 Class scope [basic.scope.class] 27
+3.3.7 Name hiding [basic.scope.hiding] 28
+3.4 Name lookup [basic.lookup] 29
+3.4.1 Unqualified name lookup [basic.lookup.unqual] 29
+3.4.2 Argument-dependent name lookup [basic.lookup.koenig] 32
+3.4.3 Qualified name lookup [basic.lookup.qual] 34
+3.4.3.1 Class members [class.qual] 35
+3.4.3.2 Namespace members [namespace.qual] 35
+3.4.4 Elaborated type specifiers [basic.lookup.elab] 39
+3.4.5 Class member access [basic.lookup.classref] 40
+3.4.6 Using-directives and namespace aliases [basic.lookup.udir] 41
+3.5 Program and linkage [basic.link] 41
+3.6 Start and termination [basic.start] 43
+3.6.1 Main function [basic.start.main] 43
+3.6.2 Initialization of non-local objects [basic.start.init] 44
+3.6.3 Termination [basic.start.term] 45
+3.7 Storage duration [basic.stc] 46
+3.7.1 Static storage duration [basic.stc.static] 46
+3.7.2 Automatic storage duration [basic.stc.auto] 46
+3.7.3 Dynamic storage duration [basic.stc.dynamic] 47
+3.7.3.1 Allocation functions [basic.stc.dynamic.allocation] 47
+3.7.3.2 Deallocation functions [basic.stc.dynamic.deallocation] 48
+3.7.4 Duration of sub-objects [basic.stc.inherit] 48
+3.8 Object Lifetime [basic.life] 49
+3.9 Types [basic.types] 52
+3.9.1 Fundamental types [basic.fundamental] 53
+3.9.2 Compound types [basic.compound] 55
+3.9.3 CV-qualifiers [basic.type.qualifier] 55
+3.10 Lvalues and rvalues [basic.lval] 56
+
+4 Standard conversions [conv] 59
+4.1 Lvalue-to-rvalue conversion [conv.lval] 59
+4.2 Array-to-pointer conversion [conv.array] 60
+4.3 Function-to-pointer conversion [conv.func] 60
+4.4 Qualification conversions [conv.qual] 60
+4.5 Integral promotions [conv.prom] 61
+4.6 Floating point promotion [conv.fpprom] 61
+4.7 Integral conversions [conv.integral] 62
+4.8 Floating point conversions [conv.double] 62
+4.9 Floating-integral conversions [conv.fpint] 62
+4.10 Pointer conversions [conv.ptr] 62
+4.11 Pointer to member conversions [conv.mem] 63
+4.12 Boolean conversions [conv.bool] 63
+
+5 Expressions [expr] 65
+5.1 Primary expressions [expr.prim] 66
+5.2 Postfix expressions [expr.post] 68
+5.2.1 Subscripting [expr.sub] 68
+5.2.2 Function call [expr.call] 68
+5.2.3 Explicit type conversion (functional notation) [expr.type.conv] 70
+5.2.4 Pseudo destructor call [expr.pseudo] 70
+5.2.5 Class member access [expr.ref] 70
+5.2.6 Increment and decrement [expr.post.incr] 71
+5.2.7 Dynamic cast [expr.dynamic.cast] 72
+5.2.8 Type identification [expr.typeid] 73
+5.2.9 Static cast [expr.static.cast] 74
+5.2.10 Reinterpret cast [expr.reinterpret.cast] 75
+5.2.11 Const cast [expr.const.cast] 76
+5.3 Unary expressions [expr.unary] 78
+5.3.1 Unary operators [expr.unary.op] 78
+5.3.2 Increment and decrement [expr.pre.incr] 79
+5.3.3 Sizeof [expr.sizeof] 79
+5.3.4 New [expr.new] 80
+5.3.5 Delete [expr.delete] 83
+5.4 Explicit type conversion (cast notation) [expr.cast] 84
+5.5 Pointer-to-member operators [expr.mptr.oper] 85
+5.6 Multiplicative operators [expr.mul] 85
+5.7 Additive operators [expr.add] 86
+5.8 Shift operators [expr.shift] 87
+5.9 Relational operators [expr.rel] 87
+5.10 Equality operators [expr.eq] 88
+5.11 Bitwise AND operator [expr.bit.and] 89
+5.12 Bitwise exclusive OR operator [expr.xor] 89
+5.13 Bitwise inclusive OR operator [expr.or] 89
+5.14 Logical AND operator [expr.log.and] 89
+5.15 Logical OR operator [expr.log.or] 90
+5.16 Conditional operator [expr.cond] 90
+5.17 Assignment operators [expr.ass] 91
+5.18 Comma operator [expr.comma] 92
+5.19 Constant expressions [expr.const] 92
+
+6 Statements [stmt.stmt] 95
+6.1 Labeled statement [stmt.label] 95
+6.2 Expression statement [stmt.expr] 95
+6.3 Compound statement or block [stmt.block]95
+6.4 Selection statements [stmt.select] 96
+6.4.1 The if statement [stmt.if] 97
+6.4.2 The switch statement [stmt.switch] 97
+6.5 Iteration statements [stmt.iter] 97
+6.5.1 The while statement [stmt.while] 98
+6.5.2 The do statement [stmt.do] 98
+6.5.3 The for statement [stmt.for] 99
+6.6 Jump statements [stmt.jump] 99
+6.6.1 The break statement [stmt.break] 99
+6.6.2 The continue statement [stmt.cont] 100
+6.6.3 The return statement [stmt.return] 100
+6.6.4 The goto statement [stmt.goto] 100
+6.7 Declaration statement [stmt.dcl] 100
+6.8 Ambiguity resolution [stmt.ambig] 101
+
+7 Declarations [dcl.dcl] 103
+7.1 Specifiers [dcl.spec] 104
+7.1.1 Storage class specifiers [dcl.stc] 105
+7.1.2 Function specifiers [dcl.fct.spec] 106
+7.1.3 The typedef specifier [dcl.typedef] 107
+7.1.4 The friend specifier [dcl.friend] 108
+7.1.5 Type specifiers [dcl.type] 108
+7.1.5.1 The cv-qualifiers [dcl.type.cv] 109
+7.1.5.2 Simple type specifiers [dcl.type.simple] 110
+7.1.5.3 Elaborated type specifiers [dcl.type.elab] 111
+7.2 Enumeration declarations [dcl.enum] 112
+7.3 Namespaces [basic.namespace] 114
+7.3.1 Namespace definition [namespace.def] 114
+7.3.1.1 Unnamed namespaces [namespace.unnamed] 115
+7.3.1.2 Namespace member definitions [namespace.memdef] 115
+7.3.2 Namespace alias [namespace.alias] 117
+7.3.3 The using declaration [namespace.udecl] 117
+7.3.4 Using directive [namespace.udir] 123
+7.4 The asm declaration [dcl.asm] 126
+7.5 Linkage specifications [dcl.link] 126
+
+8 Declarators [dcl.decl] 131
+8.1 Type names [dcl.name] 132
+8.2 Ambiguity resolution [dcl.ambig.res] 132
+8.3 Meaning of declarators [dcl.meaning] 134
+8.3.1 Pointers [dcl.ptr] 135
+8.3.2 References [dcl.ref] 135
+8.3.3 Pointers to members [dcl.mptr] 136
+8.3.4 Arrays [dcl.array] 137
+8.3.5 Functions [dcl.fct] 138
+8.3.6 Default arguments [dcl.fct.default] 141
+8.4 Function definitions [dcl.fct.def] 144
+8.5 Initializers [dcl.init] 145
+8.5.1 Aggregates [dcl.init.aggr] 147
+8.5.2 Character arrays [dcl.init.string] 150
+8.5.3 References [dcl.init.ref] 150
+
+9 Classes [class] 153
+9.1 Class names [class.name] 153
+9.2 Class members [class.mem] 155
+9.3 Member functions [class.mfct] 157
+9.3.1 Nonstatic member functions [class.mfct.nonstatic] 158
+9.3.2 The this pointer [class.this] 160
+9.4 Static members [class.static] 160
+9.4.1 Static member functions [class.static.mfct] 161
+9.4.2 Static data members [class.static.data] 161
+9.5 Unions [class.union] 162
+9.6 Bit-fields [class.bit] 163
+9.7 Nested class declarations [class.nest] 164
+9.8 Local class declarations [class.local] 165
+9.9 Nested type names [class.nested.type] 166
+
+10 Derived classes [class.derived] 167
+10.1 Multiple base classes [class.mi] 168
+10.2 Member name lookup [class.member.lookup] 169
+10.3 Virtual functions [class.virtual] 172
+10.4 Abstract classes [class.abstract] 176
+
+11 Member access control [class.access] 179
+11.1 Access specifiers [class.access.spec] 180
+11.2 Accessibility of base classes and base class members [class.access.base] 181
+11.3 Access declarations [class.access.dcl] 182
+11.4 Friends [class.friend] 183
+11.5 Protected member access [class.protected] 186
+11.6 Access to virtual functions [class.access.virt] 187
+11.7 Multiple access [class.paths] 188
+11.8 Nested classes [class.access.nest] 188
+
+12 Special member functions [special] 189
+12.1 Constructors [class.ctor] 189
+12.2 Temporary objects [class.temporary] 191
+12.3 Conversions [class.conv] 192
+12.3.1 Conversion by constructor [class.conv.ctor] 193
+12.3.2 Conversion functions [class.conv.fct] 194
+12.4 Destructors [class.dtor] 195
+12.5 Free store [class.free] 198
+12.6 Initialization [class.init] 199
+12.6.1 Explicit initialization [class.expl.init] 200
+12.6.2 Initializing bases and members [class.base.init] 201
+12.7 Construction and destruction [class.cdtor] 204
+12.8 Copying class objects [class.copy] 207
+
+13 Overloading [over] 213
+13.1 Overloadable declarations [over.load] 213
+13.2 Declaration matching [over.dcl] 215
+13.3 Overload resolution [over.match] 216
+13.3.1 Candidate functions and argument lists [over.match.funcs] 217
+13.3.1.1 Function call syntax [over.match.call] 218
+13.3.1.1.1 Call to named function [over.call.func] 218
+13.3.1.1.2 Call to object of class type [over.call.object] 219
+13.3.1.2 Operators in expressions [over.match.oper] 220
+13.3.1.3 Initialization by constructor [over.match.ctor] 222
+13.3.1.4 Copy-initialization of class by user-defined conversion [over.match.copy] 222
+13.3.1.5 Initialization by conversion function [over.match.conv] 222
+13.3.1.6 Initialization by conversion function for direct reference binding [over.match.ref] 223
+13.3.2 Viable functions [over.match.viable] 223
+13.3.3 Best Viable Function [over.match.best] 223
+13.3.3.1 Implicit conversion sequences [over.best.ics] 225
+13.3.3.1.1 Standard conversion sequences [over.ics.scs] 227
+13.3.3.1.2 User-defined conversion sequences [over.ics.user] 227
+13.3.3.1.3 Ellipsis conversion sequences [over.ics.ellipsis] 228
+13.3.3.1.4 Reference binding [over.ics.ref] 228
+13.3.3.2 Ranking implicit conversion sequences [over.ics.rank] 228
+13.4 Address of overloaded function [over.over] 230
+13.5 Overloaded operators [over.oper] 232
+13.5.1 Unary operators [over.unary] 233
+13.5.2 Binary operators [over.binary] 233
+13.5.3 Assignment [over.ass] 233
+13.5.4 Function call [over.call] 234
+13.5.5 Subscripting [over.sub] 234
+13.5.6 Class member access [over.ref] 234
+13.5.7 Increment and decrement [over.inc] 234
+13.6 Built-in operators [over.built] 235
+
+14 Templates [temp] 239
+14.1 Template parameters [temp.param] 240
+14.2 Names of template specializations [temp.names] 242
+14.3 Template arguments [temp.arg] 244
+14.3.1 Template type arguments [temp.arg.type] 245
+14.3.2 Template non-type arguments [temp.arg.nontype] 246
+14.3.3 Template template arguments [temp.arg.template] 248
+14.4 Type equivalence [temp.type] 248
+14.5 Template declarations [temp.decls] 249
+14.5.1 Class templates [temp.class] 249
+14.5.1.1 Member functions of class templates [temp.mem.func] 249
+14.5.1.2 Member classes of class templates [temp.mem.class] 250
+14.5.1.3 Static data members of class templates [temp.static] 250
+14.5.2 Member templates [temp.mem] 251
+14.5.3 Friends [temp.friend] 252
+14.5.4 Class template partial specializations [temp.class.spec] 254
+14.5.4.1 Matching of class template partial specializations [temp.class.spec.match] 256
+14.5.4.2 Partial ordering of class template specializations [temp.class.order] 257
+14.5.4.3 Members of class template specializations [temp.class.spec.mfunc] 257
+14.5.5 Function templates [temp.fct] 258
+14.5.5.1 Function template overloading [temp.over.link] 259
+14.5.5.2 Partial ordering of function templates [temp.func.order] 260
+14.6 Name resolution [temp.res] 261
+14.6.1 Locally declared names [temp.local] 264
+14.6.2 Dependent names [temp.dep] 267
+14.6.2.1 Dependent types [temp.dep.type] 268
+14.6.2.2 Type-dependent expressions [temp.dep.expr] 268
+14.6.2.3 Value-dependent expressions [temp.dep.constexpr] 269
+14.6.2.4 Dependent template arguments [temp.dep.temp] 269
+14.6.3 Non-dependent names [temp.nondep] 270
+14.6.4 Dependent name resolution [temp.dep.res] 270
+14.6.4.1 Point of instantiation [temp.point] 270
+14.6.4.2 Candidate functions [temp.dep.candidate] 271
+14.6.5 Friend names declared within a class template [temp.inject] 271
+14.7 Template instantiation and specialization [temp.spec] 272
+14.7.1 Implicit instantiation [temp.inst] 273
+14.7.2 Explicit instantiation [temp.explicit] 276
+14.7.3 Explicit specialization [temp.expl.spec] 277
+14.8 Function template specializations [temp.fct.spec] 282
+14.8.1 Explicit template argument specification [temp.arg.explicit] 283
+14.8.2 Template argument deduction [temp.deduct] 285
+14.8.2.1 Deducing template arguments from a function call [temp.deduct.call] 287
+14.8.2.2 Deducing template arguments taking the address of a function template [temp.deduct.funcaddr] 288
+14.8.2.3 Deducing conversion function template arguments [temp.deduct.conv] 288
+14.8.2.4 Deducing template arguments from a type [temp.deduct.type] 288
+14.8.3 Overload resolution [temp.over] 293
+
+15 Exception handling [except] 297
+15.1 Throwing an exception [except.throw] 298
+15.2 Constructors and destructors [except.ctor] 300
+15.3 Handling an exception [except.handle] 300
+15.4 Exception specifications [except.spec] 302
+15.5 Special functions [except.special] 304
+15.5.1 The terminate() function [except.terminate] 304
+15.5.2 The unexpected() function [except.unexpected] 305
+15.5.3 The uncaught_exception() function [except.uncaught] 305
+15.6 Exceptions and access [except.access] 305
+
+16 Preprocessing directives [cpp] 307
+16.1  Conditional inclusion [cpp.cond] 308
+16.2 Source file inclusion [cpp.include] 309
+16.3 Macro replacement [cpp.replace] 310
+16.3.1 Argument substitution [cpp.subst] 311
+16.3.2 The # operator [cpp.stringize] 311
+16.3.3 The ## operator [cpp.concat] 312
+16.3.4 Rescanning and further replacement [cpp.rescan] 312
+16.3.5 Scope of macro definitions [cpp.scope] 312
+16.4 Line control [cpp.line] 314
+16.5 Error directive [cpp.error] 314
+16.6 Pragma directive [cpp.pragma] 314
+16.7  Null directive [cpp.null] 314
+16.8 Predefined macro names [cpp.predefined] 315
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Annex A (informative) Grammar summary [gram] 675
+A.1 Keywords [gram.key] 675
+A.2 Lexical conventions [gram.lex] 675
+A.3 Basic concepts [gram.basic] 679
+A.4 Expressions [gram.expr] 679
+A.5 Statements [gram.stmt.stmt] 682
+A.6 Declarations [gram.dcl.dcl] 683
+A.7 Declarators [gram.dcl.decl] 685
+A.8 Classes [gram.class] 687
+A.9 Derived classes [gram.class.derived] 688
+A.10 Special member functions [gram.special] 688
+A.11 Overloading [gram.over] 688
+A.12 Templates [gram.temp] 689
+A.13 Exception handling [gram.except] 689
+A.14 Preprocessing directives [gram.cpp] 690
+
+Annex B (informative) Implementation quantities [limits] 693
+
+Annex C (informative) Compatibility [diff] 695
+C.1 C++ and ISO C [diff.iso] 695
+C.1.1 Clause 2: lexical conventions [diff.lex] 695
+C.1.2 Clause 3: basic concepts [diff.basic] 696
+C.1.3 Clause 5: expressions [diff.expr] 698
+C.1.4 Clause 6: statements [diff.stat] 699
+C.1.5 Clause 7: declarations [diff.dcl] 699
+C.1.6 Clause 8: declarators [diff.decl] 701
+C.1.7 Clause 9: classes [diff.class] 702
+C.1.8 Clause 12: special member functions [diff.special] 703
+C.1.9 Clause 16: preprocessing directives [diff.cpp] 704
+C.2 Standard C library [diff.library] 704
+C.2.1 Modifications to headers [diff.mods.to.headers] 706
+C.2.2 Modifications to definitions [diff.mods.to.definitions] 706
+C.2.2.1 Type wchar_t [diff.wchar.t] 706
+C.2.2.2 Header <iso646.h> [diff.header.iso646.h] 707
+C.2.2.3 Macro NULL [diff.null] 707
+C.2.3 Modifications to declarations [diff.mods.to.declarations] 707
+C.2.4 Modifications to behavior [diff.mods.to.behavior] 707
+C.2.4.1 Macro offsetof(type, member-designator) [diff.offsetof] 707
+C.2.4.2 Memory allocation functions [diff.malloc] 707
+
+Annex D (normative) Compatibility features [depr] 709
+D.1 Increment operator with bool operand [depr.incr.bool] 709
+D.2 static keyword [depr.static] 709
+D.3 Access declarations [depr.access.dcl] 709
+D.4 Implicit conversion from const strings [depr.string] 709
+D.5 Standard C library headers [depr.c.headers] 709
+D.6 Old iostreams members [depr.ios.members] 709
+D.7 char* streams [depr.str.strstreams] 711
+D.7.1 Class strstreambuf [depr.strstreambuf] 711
+D.7.1.1 strstreambuf constructors [depr.strstreambuf.cons] 713
+D.7.1.2 Member functions [depr.strstreambuf.members] 714
+D.7.1.3 strstreambuf overridden virtual functions [depr.strstreambuf.virtuals] 714
+D.7.2 Class istrstream [depr.istrstream] 717
+D.7.2.1 istrstream constructors [depr.istrstream.cons] 717
+D.7.2.2 Member functions [depr.istrstream.members] 717
+D.7.3 Class ostrstream [depr.ostrstream] 718
+D.7.3.1 ostrstream constructors [depr.ostrstream.cons] 718
+D.7.3.2 Member functions [depr.ostrstream.members] 718
+D.7.4 Class strstream [depr.strstream] 719
+D.7.4.1 strstream constructors [depr.strstream.cons] 719
+D.7.4.2 strstream destructor [depr.strstream.dest] 720
+D.7.4.3 strstream operations [depr.strstream.oper] 720
+
+Annex E (normative) Universal-character-names [extendid] 721
+
+Index [index] 723

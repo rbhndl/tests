@@ -1,0 +1,677 @@
+ 
+ © ISO/IEC 2003 — All rights reserved
+ISO/IEC 14882:2003(E)
+ 
+ Contents
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+17 Library introduction ............................317
+17.1 Definitions .......................................317
+17.1.1 arbitrary-positional stream ............317
+17.1.2 character ........................................317
+17.1.3 character container type ................317
+17.1.4 comparison function .....................317
+17.1.5 component.....................................318
+17.1.6 default behavior ............................318
+17.1.7 handler function ............................318
+17.1.8 iostream class templates ...............318
+17.1.9 modifier function ..........................318
+17.1.10 object state ..................................318
+17.1.11 narrow-oriented iostream classes 318
+17.1.12 NTCTS........................................318
+17.1.13 observer function ........................318
+17.1.14 replacement function...................318
+17.1.15 required behavior ........................318
+17.1.16 repositional stream ......................319
+17.1.17 reserved function.........................319
+17.1.18 traits class....................................319
+17.1.19 wide-oriented iostream classes ...319
+17.2
+ Additional definitions ......................319
+17.3 Method of description (Informative) ................................................319
+17.3.1 Structure of each subclause...........319
+17.3.1.1 Summary ....................................320
+17.3.1.2 Requirements .............................320
+17.3.1.3 Specifications.............................320
+17.3.1.4 C Library....................................321
+17.3.2 Other conventions .........................321
+17.3.2.1 Type descriptions .......................321
+17.3.2.1.1 Enumerated types....................322
+17.3.2.1.2 Bitmask types..........................322
+17.3.2.1.3 Character sequences ................323
+17.3.2.1.3.1 Byte strings ..........................323
+17.3.2.1.3.2 Multibyte strings ..................324
+17.3.2.1.3.3 Wide-character sequences....324
+17.3.2.2 Functions within classes ............324
+17.3.2.3 Private members ........................324
+xii
+ © ISO/IEC 2003 — All rights reserved
+ISO/IEC 14882:2003(E)
+17.4 Library-wide requirements ..............324
+17.4.1 Library contents and organization 325
+17.4.1.1 Library contents .........................325
+17.4.1.2 Headers ......................................325
+17.4.1.3 Freestanding implementations ...326
+17.4.2 Using the library ...........................326
+17.4.2.1 Headers ......................................326
+17.4.2.2 Linkage ......................................327
+17.4.3 Constraints on programs ...............327
+17.4.3.1 Reserved names .........................327
+17.4.3.1.1 Macro names ...........................327
+17.4.3.1.2 Global names ..........................327
+17.4.3.1.3 External linkage ......................328
+17.4.3.1.4 Types.......................................328
+17.4.3.2 Headers ......................................328
+17.4.3.3 Derived classes ..........................328
+17.4.3.4 Replacement functions...............328
+17.4.3.5 Handler functions.......................329
+17.4.3.6 Other functions ..........................329
+17.4.3.7 Function arguments ...................330
+17.4.3.8 Required paragraph ....................330
+17.4.4 Conforming implementations .......330
+17.4.4.1 Headers ......................................330
+17.4.4.2 Restrictions on macro definitions ...............................................330
+17.4.4.3 Global or non-member functions ................................................330
+17.4.4.4 Member functions ......................331
+17.4.4.5 Reentrancy .................................331
+17.4.4.6 Protection within classes............331
+17.4.4.7 Derived classes ..........................331
+17.4.4.8 Restrictions on exception handling .............................................331
+18 Language support library ....................333
+18.1 Types................................................333
+18.2 Implementation properties ...............334
+18.2.1 Numeric limits ..............................334
+18.2.1.1 Class template numeric_limits ..........................................334
+18.2.1.2 numeric_limits members ..335
+18.2.1.3 Type float_round_style .339
+18.2.1.4 Type float_denorm_style................................................340
+18.2.1.5 numeric_limits specializations ..........................................340
+18.2.2 C Library.......................................341
+18.3
+ Start and termination........................342
+18.4 Dynamic memory management .......343
+18.4.1 Storage allocation and deallocation ...............................................343
+18.4.1.1 Single-object forms....................343
+18.4.1.2 Array forms ................................345
+18.4.1.3 Placement forms ........................345
+18.4.2 Storage allocation errors ...............346
+18.4.2.1 Class bad_alloc ....................346
+18.4.2.2 Type new_handler................347
+© ISO/IEC 2003 — All rights reserved
+ xiii
+ISO/IEC 14882:2003(E)
+18.4.2.3
+ set_new_handler ...............347
+18.5 Type identification ...........................347
+18.5.1 Class type_info .......................347
+18.5.2 Class bad_cast .........................348
+18.5.3 Class bad_typeid.....................349
+18.6 Exception handling ..........................349
+18.6.1 Class exception .......................349
+18.6.2 Violating exception-specifications350
+18.6.2.1 Class bad_exception ..........350
+18.6.2.2 Type unexpected_handler................................................351
+18.6.2.3 set_unexpected..................351
+18.6.2.4 unexpected ...........................351
+18.6.3 Abnormal termination...................351
+18.6.3.1 Type terminate_handler .351
+18.6.3.2 set_terminate ....................352
+18.6.3.3 terminate..............................352
+18.6.4 uncaught_exception ...........352
+18.7 Other runtime support ......................352
+19 Diagnostics library ..............................355
+19.119.1.119.1.219.1.319.1.419.1.519.1.619.1.719.1.819.1.9Exceptionclasses .............................355
+Class logic_error ..................355
+Class domain_error................356
+Class invalid_argument ......356
+Class length_error................356
+Class out_of_range................357
+Class runtime_error .............357
+Class range_error ..................357
+Class overflow_error ...........357
+Class underflow_error.........358
+19.2 Assertions ........................................358
+19.3 Error numbers ..................................358
+20 General utilities library .......................359
+20.1 Requirements ...................................359
+20.1.1 Equality comparison .....................359
+20.1.2 Less than comparison ...................359
+20.1.3 Copy construction .........................360
+20.1.4 Default construction......................360
+20.1.5 Allocator requirements .................360
+20.2 Utility components...........................363
+20.2.1 Operators.......................................364
+20.2.2 Pairs ..............................................364
+20.3 Function objects ...............................365
+20.3.1 Base...............................................367
+xiv
+ © ISO/IEC 2003 — All rights reserved
+ISO/IEC 14882:2003(E)
+20.3.2 Arithmetic operations ...................367
+20.3.3 Comparisons .................................368
+20.3.4 Logical operations ........................369
+20.3.5 Negators ........................................369
+20.3.6 Binders ..........................................370
+20.3.6.1 Class template binder1st .....370
+20.3.6.2 bind1st...................................370
+20.3.6.3 Class template binder2nd .....370
+20.3.6.4 bind2nd...................................371
+20.3.7 Adaptors for pointers to functions 371
+20.3.8 Adaptors for pointers to members 372
+20.4 Memory............................................374
+20.4.1 The default allocator .....................374
+20.4.1.1 allocator members ..............375
+20.4.1.2 allocator globals .................376
+20.4.2 Raw storage iterator ......................376
+20.4.3 Temporary buffers ........................377
+20.4.4 Specialized algorithms ..................377
+20.4.4.1 uninitialized_copy ........377
+20.4.4.2 uninitialized_fill ........378
+20.4.4.3 uninitialized_fill_n ...378
+20.4.5 Class template auto_ptr...........378
+20.4.5.1 auto_ptr constructors............379
+20.4.5.2 auto_ptr members ................379
+20.4.5.3 auto_ptr conversions ............380
+20.4.6 C Library .......................................380
+20.5 Date and time ...................................381
+21
+ Strings library .....................................383
+21.1 Character traits .................................383
+21.1.1 Character traits requirements ........383
+21.1.2 traits typedefs ................................385
+21.1.3 char_traits specializations ...385
+21.1.3.1 struct char_traits<char>...........................................385
+21.1.3.2 struct char_traits<wchar_t>....................................386
+21.2
+ String classes ...................................387
+21.3 Class template basic_string ....389
+21.3.1 basic_string constructors .....393
+21.3.2 basic_string iterator support 396
+21.3.3 basic_string capacity ...........396
+21.3.4 basic_string element access .398
+21.3.5 basic_string modifiers .........398
+21.3.5.1 basic_string::operator+=...........................................398
+21.3.5.2 basic_string::append ...398
+21.3.5.3 basic_string::assign ...399
+21.3.5.4 basic_string::insert ...400
+21.3.5.5 basic_string::erase......401
+21.3.5.6 basic_string::replace.401
+21.3.5.7 basic_string::copy ........402
+© ISO/IEC 2003 — All rights reserved
+ xv
+ISO/IEC 14882:2003(E)
+21.3.5.821.3.621.3.6.121.3.6.221.3.6.321.3.6.421.3.6.521.3.6.621.3.6.721.3.6.821.3.721.3.7.121.3.7.221.3.7.321.3.7.421.3.7.521.3.7.621.3.7.721.3.7.821.3.7.9basic_stringbasic_stringbasic_string::swap ........403
+string operations ...............................................403
+basic_string::find ........403
+basic_string::rfind......404
+basic_string::find_first_of....................................404
+basic_string::find_last_of......................................405
+basic_string::find_first_not_of..........................405
+basic_string::find_last_not_of ............................406
+basic_string::substr ...406
+basic_string::compare.406
+non-member functions .....................................407
+operator+..............................407
+operator== ...........................408
+operator!= ...........................408
+operator<..............................409
+operator>..............................409
+operator<= ...........................409
+operator>= ...........................410
+swap..........................................410
+Inserters and extractors ..............410
+21.4 Null-terminated sequence utilities ...411
+22 Localization library.............................415
+22.1 Locales .............................................415
+22.1.1 Class locale ..............................416
+22.1.1.1 locale types ...........................418
+22.1.1.1.1 Type locale::category.418
+22.1.1.1.2 Class locale::facet .......420
+22.1.1.1.3 Class locale::id...............420
+22.1.1.2 locale constructors and destructor..........................................421
+22.1.1.3 locale members .....................422
+22.1.1.4 locale operators .....................422
+22.1.1.5 locale static members ............423
+22.1.2 locale globals ...........................423
+22.1.3 Convenience interfaces .................423
+22.1.3.1 Character classification ..............423
+22.1.3.2 Character conversions ................424
+22.2 Standard locale categories...........424
+22.2.1 The ctype category ....................424
+22.2.1.1 Class template ctype...............424
+22.2.1.1.1 ctype members.....................425
+22.2.1.1.2 ctype virtual functions .........426
+22.2.1.2 Class template ctype_byname ...............................................427
+22.2.1.3 ctype specializations ...............428
+22.2.1.3.1 ctype<char> destructor .....429
+22.2.1.3.2 ctype<char> members ......429
+22.2.1.3.3 ctype<char> static members ..............................................430
+22.2.1.3.4 ctype<char> virtual functions............................................430
+22.2.1.4 Class ctype_byname<char> .......431
+22.2.1.5 Class template codecvt ..........431
+22.2.1.5.1 codecvt members ................432
+xvi
+ © ISO/IEC 2003 — All rights reserved
+ISO/IEC 14882:2003(E)
+22.2.1.5.2 codecvt virtual functions ....433
+22.2.1.6 Class template codecvt_byname ..........................................435
+22.2.2 The numeric category ...................435
+22.2.2.1 Class template num_get ..........435
+22.2.2.1.1 num_get members ................437
+22.2.2.1.2 num_get virtual functions ....437
+22.2.2.2 Class template num_put ..........439
+22.2.2.2.1 num_put members ................440
+22.2.2.2.2 num_put virtual functions ....440
+22.2.3 The numeric punctuation facet .....443
+22.2.3.1 Class template numpunct........443
+22.2.3.1.1 numpunct members .............444
+22.2.3.1.2 numpunct virtual functions ..445
+22.2.3.2 Class template numpunct_byname........................................445
+22.2.4 The collate category ......................445
+22.2.4.1 Class template collate ..........445
+22.2.4.1.1 collate members ................446
+22.2.4.1.2 collate virtual functions ....446
+22.2.4.2 Class template collate_byname ..........................................447
+22.2.5 The time category .........................447
+22.2.5.1 Class template time_get........447
+22.2.5.1.1 time_get members .............448
+22.2.5.1.2 time_get virtual functions ..449
+22.2.5.2 Class template time_get_byname........................................450
+22.2.5.3 Class template time_put........450
+22.2.5.3.1 time_put members .............451
+22.2.5.3.2 time_put virtual functions ..451
+22.2.5.4 Class template time_put_byname........................................451
+22.2.6 The monetary category .................452
+22.2.6.1 Class template money_get .....452
+22.2.6.1.1 money_get members ...........452
+22.2.6.1.2 money_get virtual functions ................................................452
+22.2.6.2 Class template money_put .....454
+22.2.6.2.1 money_put members ...........454
+22.2.6.2.2 money_put virtual functions ................................................454
+22.2.6.3 Class template moneypunct...455
+22.2.6.3.1 moneypunct members .........456
+22.2.6.3.2 moneypunct virtual functions ..............................................456
+22.2.6.4 Class template moneypunct_byname ...................................457
+22.2.7 The message retrieval category.....458
+22.2.7.1 Class template messages........458
+22.2.7.1.1 messages members .............458
+22.2.7.1.2 messages virtual functions ..459
+22.2.7.2 Class template messages_byname........................................459
+22.2.8 Program-defined facets .................459
+22.3
+ C Library Locales ............................463
+23 Containers library ...............................465
+23.1 Container requirements ....................465
+23.1.1 Sequences .....................................468
+23.1.2 Associative containers ..................471
+© ISO/IEC 2003 — All rights reserved
+ xvii
+ISO/IEC 14882:2003(E)
+23.2 Sequences ........................................474
+23.2.1 Class template deque..................477
+23.2.1.1 deque constructors, copy, and assignment ...............................479
+23.2.1.2 deque capacity .........................480
+23.2.1.3 deque modifiers .......................480
+23.2.1.4 deque specialized algorithms ..480
+23.2.2 Class template list ....................481
+23.2.2.1 list constructors, copy, and assignment..................................483
+23.2.2.2 list capacity ...........................484
+23.2.2.3 list modifiers .........................484
+23.2.2.4 list operations ........................484
+23.2.2.5 list specialized algorithms .....486
+23.2.3 Container adaptors ........................486
+23.2.3.1 Class template queue...............486
+23.2.3.2 Class template priority_queue ..........................................487
+23.2.3.2.1 priority_queue constructors ...........................................488
+23.2.3.2.2 priority_queue members ................................................488
+23.2.3.3 Class template stack...............488
+23.2.4 Class template vector ...............489
+23.2.4.1 vector constructors, copy, and assignment .............................491
+23.2.4.2 vector capacity.......................492
+23.2.4.3 vector modifiers.....................492
+23.2.4.4 vector specialized algorithms 493
+23.2.5 Class vector<bool>................493
+23.3 Associative containers .....................495
+23.3.1 Class template map.......................497
+23.3.1.1 map constructors, copy, and assignment ....................................499
+23.3.1.2 map element access ...................500
+23.3.1.3 map operations ..........................500
+23.3.1.4 map specialized algorithms .......500
+23.3.2 Class template multimap...........500
+23.3.2.1 multimap constructors............503
+23.3.2.2 multimap operations ..............503
+23.3.2.3 multimap specialized algorithms ............................................503
+23.3.3 Class template set.......................503
+23.3.3.1 set constructors, copy, and assignment ....................................505
+23.3.3.2 set specialized algorithms .......506
+23.3.4 Class template multiset...........506
+23.3.4.1 multiset constructors............508
+23.3.4.2 multiset specialized algorithms ............................................508
+23.3.5 Class template bitset ...............509
+23.3.5.1 bitset constructors ................510
+23.3.5.2 bitset members .....................511
+23.3.5.3 bitset operators .....................514
+24 Iterators library ...................................515
+24.1 Iterator requirements ........................515
+24.1.1 Input iterators ................................516
+24.1.2 Output iterators .............................517
+24.1.3 Forward iterators ...........................518
+24.1.4 Bidirectional iterators ...................519
+24.1.5 Random access iterators................519
+xviii
+ © ISO/IEC 2003 — All rights reserved
+ISO/IEC 14882:2003(E)
+24.2 Header <iterator> synopsis ......520
+24.3 Iterator primitives ............................522
+24.3.1 Iterator traits..................................522
+24.3.2 Basic iterator .................................523
+24.3.3 Standard iterator tags ....................524
+24.3.4 Iterator operations .........................525
+24.4 Predefined iterators ..........................525
+24.4.1 Reverse iterators ...........................525
+24.4.1.1 Class template reverse_iterator .....................................526
+24.4.1.2 reverse_iterator requirements ........................................527
+24.4.1.3 reverse_iterator operations ............................................527
+24.4.1.3.1 reverse_iterator constructor ........................................527
+24.4.1.3.2 Conversion ..............................527
+24.4.1.3.3 operator*...........................527
+24.4.1.3.4 operator-> ........................528
+24.4.1.3.5 operator++ ........................528
+24.4.1.3.6 operator-- ........................528
+24.4.1.3.7 operator+...........................528
+24.4.1.3.8 operator+= ........................528
+24.4.1.3.9 operator-...........................529
+24.4.1.3.10 operator-= ......................529
+24.4.1.3.11 operator[] ......................529
+24.4.1.3.12 operator== ......................529
+24.4.1.3.13 operator<.........................529
+24.4.1.3.14 operator!= ......................529
+24.4.1.3.15 operator>.........................529
+24.4.1.3.16 operator>= ......................530
+24.4.1.3.17 operator<= ......................530
+24.4.1.3.18 operator-.........................530
+24.4.1.3.19 operator+.........................530
+24.4.2 Insert iterators ...............................530
+24.4.2.1 Class template back_insert_iterator............................531
+24.4.2.2 back_insert_iterator operations...................................531
+24.4.2.2.1 back_insert_iterator constructor ..............................531
+24.4.2.2.2 back_insert_iterator::operator=.......................531
+24.4.2.2.3 back_insert_iterator::operator*.......................531
+24.4.2.2.4 back_insert_iterator::operator++.....................531
+24.4.2.2.5 back_inserter .................532
+24.4.2.3 Class template front_insert_iterator .........................532
+24.4.2.4 front_insert_iterator operations ................................532
+24.4.2.4.1 front_insert_iterator constructor ............................532
+24.4.2.4.2 front_insert_iterator::operator=.....................532
+24.4.2.4.3 front_insert_iterator::operator*.....................532
+24.4.2.4.4 front_insert_iterator::operator++ ..................533
+24.4.2.4.5 front_inserter...............533
+24.4.2.5 Class template insert_iterator........................................533
+24.4.2.6 insert_iterator operations...............................................533
+24.4.2.6.1 insert_iterator constructor ..........................................533
+24.4.2.6.2 insert_iterator::operator=...................................533
+24.4.2.6.3 insert_iterator::operator*...................................534
+24.4.2.6.4 insert_iterator::operator++.................................534
+24.4.2.6.5 inserter .............................534
+© ISO/IEC 2003 — All rights reserved
+ xix
+ISO/IEC 14882:2003(E)
+24.5 Stream iterators ................................534
+24.5.1 Class template istream_iterator ........................................534
+24.5.1.1 istream_iterator constructors and destructor ..................535
+24.5.1.2 istream_iterator operations ............................................535
+24.5.2 Class template ostream_iterator ........................................536
+24.5.2.1 ostream_iterator constructors and destructor ..................537
+24.5.2.2 ostream_iterator operations ............................................537
+24.5.3 Class template istreambuf_iterator .................................537
+24.5.3.1 Class template istreambuf_iterator::proxy .............538
+24.5.3.2 istreambuf_iterator constructors ..................................539
+24.5.3.3 istreambuf_iterator::operator* ............................539
+24.5.3.4 istreambuf_iterator::operator++..........................539
+24.5.3.5 istreambuf_iterator::equal......................................539
+24.5.3.6 operator== ...........................539
+24.5.3.7 operator!= ...........................539
+24.5.4 Class template ostreambuf_iterator .................................540
+24.5.4.1 ostreambuf_iterator constructors ..................................540
+24.5.4.2 ostreambuf_iterator operations .....................................540
+25
+ Algorithms library ..............................543
+25.1 Non-modifying sequence operations ................................................551
+25.1.1 For each ........................................551
+25.1.2 Find ...............................................552
+25.1.3 Find End........................................552
+25.1.4 Find First.......................................552
+25.1.5 Adjacent find ................................553
+25.1.6 Count.............................................553
+25.1.7 Mismatch ......................................553
+25.1.8 Equal .............................................554
+25.1.9 Search ...........................................554
+25.2 Mutating25.2.125.2.225.2.325.2.425.2.525.2.625.2.725.2.825.2.925.2.1025.2.1125.2.12sequence operations .........555
+Copy..............................................555
+Swap .............................................555
+Transform .....................................556
+Replace .........................................556
+Fill 557
+Generate ........................................557
+Remove .........................................557
+Unique...........................................558
+Reverse .........................................558
+Rotate ..........................................559
+Random shuffle ...........................559
+Partitions .....................................560
+25.3 Sorting and related operations .........560
+25.3.1 Sorting...........................................561
+25.3.1.1 sort..........................................561
+25.3.1.2 stable_sort.........................561
+25.3.1.3 partial_sort.......................561
+25.3.1.4 partial_sort_copy...........562
+25.3.2 Nth element ...................................562
+25.3.3 Binary search ................................562
+xx
+ © ISO/IEC 2003 — All rights reserved
+ISO/IEC 14882:2003(E)
+25.3.3.1 lower_bound.........................562
+25.3.3.2 upper_bound.........................563
+25.3.3.3 equal_range.........................563
+25.3.3.4 binary_search ....................563
+25.3.4 Merge ............................................564
+25.3.5 Set operations on sorted structures ................................................564
+25.3.5.1 includes ................................565
+25.3.5.2 set_union..............................565
+25.3.5.3 set_intersection.............565
+25.3.5.4 set_difference..................566
+25.3.5.5 set_symmetric_difference...........................................566
+25.3.6 Heap operations ............................566
+25.3.6.1 push_heap..............................567
+25.3.6.2 pop_heap ................................567
+25.3.6.3 make_heap..............................567
+25.3.6.4 sort_heap..............................567
+25.3.7 Minimum and maximum ..............568
+25.3.8 Lexicographical comparison .........568
+25.3.9 Permutation generators .................569
+25.4
+ C library algorithms .........................569
+26 Numerics library .................................571
+26.1 Numeric type requirements ..............571
+26.2 Complex numbers ............................572
+26.2.1 Header <complex> synopsis .....572
+26.2.2 Class template complex .............573
+26.2.3 complex specializations .............574
+26.2.4 complex member functions........575
+26.2.5 complex member operators........575
+26.2.6 complex non-member operations ...............................................576
+26.2.7 complex value operations ..........578
+26.2.8 complex transcendentals ............578
+26.3 Numeric arrays .................................579
+26.3.1 Header <valarray> synopsis ...579
+26.3.2 Class template valarray...........582
+26.3.2.1 valarray constructors............584
+26.3.2.2 valarray assignment .............584
+26.3.2.3 valarray element access .......585
+26.3.2.4 valarray subset operations ...585
+26.3.2.5 valarray unary operators ......586
+26.3.2.6 valarray computed assignment .............................................586
+26.3.2.7 valarray member functions ..587
+26.3.3 valarray non-member operations .............................................588
+26.3.3.1 valarray binary operators .....588
+26.3.3.2 valarray logical operators ....589
+26.3.3.3 valarray transcendentals.......590
+26.3.4 Class slice.................................590
+26.3.4.1 slice constructors ...................591
+26.3.4.2 slice access functions ............591
+26.3.5 Class template slice_array ...591
+© ISO/IEC 2003 — All rights reserved
+ xxi
+ISO/IEC 14882:2003(E)
+26.3.5.1 slice_array constructors ....592
+26.3.5.2 slice_array assignment ......592
+26.3.5.3 slice_array computed assignment ......................................592
+26.3.5.4 slice_array fill function .....593
+26.3.6 The gslice class ........................593
+26.3.6.1 gslice constructors......594
+26.3.6.2 gslice access functions ..........594
+26.3.7 Class template gslice_array .594
+26.3.7.1 gslice_array constructors ..595
+26.3.7.2 gslice_array assignment....595
+26.3.7.3 gslice_array computed assignment........................595
+26.3.7.4 gslice_array fill function...596
+26.3.8 Class template mask_array......596
+26.3.8.1 mask_array constructors .......596
+26.3.8.2 mask_array assignment ........596
+26.3.8.3 mask_array computed assignment.........................................597
+26.3.8.4 mask_array fill function .......597
+26.3.9 Class template indirect_array .............................................597
+26.3.9.1 indirect_array constructors ..............................................598
+26.3.9.2 indirect_array assignment ................................................598
+26.3.9.3 indirect_array computed assignment ...............................598
+26.3.9.4 indirect_array fill function ...............................................599
+26.4 Generalized numeric operations ......599
+26.4.1 Accumulate ...................................599
+26.4.2 Inner product.................................600
+26.4.3 Partial sum ....................................600
+26.4.4 Adjacent difference .......................601
+26.5
+ C Library..........................................601
+27
+ Input/output library .............................605
+27.1 Iostreams requirements ....................605
+27.1.1 Imbue Limitations.........................605
+27.1.2 Positioning Type Limitations .......605
+27.2 Forward declarations........................605
+27.3 Standard iostream objects ................608
+27.3.1 Narrow stream objects ..................608
+27.3.2 Wide stream objects ......................609
+27.4 Iostreams base classes ......................610
+27.4.1 Types.............................................610
+27.4.2 Class ios_base .........................611
+27.4.2.1 Types..........................................613
+27.4.2.1.1 Class ios_base::failure...............................................613
+27.4.2.1.2 Type ios_base::fmtflags.............................................613
+27.4.2.1.3 Type ios_base::iostate ...............................................614
+27.4.2.1.4 Type ios_base::openmode.............................................615
+27.4.2.1.5 Type ios_base::seekdir ...............................................615
+27.4.2.1.6 Class ios_base::Init .....615
+27.4.2.2 ios_base fmtflags state functions ...................................616
+xxii
+ © ISO/IEC 2003 — All rights reserved
+ISO/IEC 14882:2003(E)
+27.4.2.3 ios_base locale functions ................................................616
+27.4.2.4 ios_base static members .......617
+27.4.2.5 ios_base storage functions....617
+27.4.2.6 ios_base callbacks ................618
+27.4.2.7 ios_base constructors/destructors ..........................................618
+27.4.3 Class template fpos ....................618
+27.4.3.1 fpos Members..........................618
+27.4.3.2 fpos requirements ....................618
+27.4.4 Class template basic_ios ........619
+27.4.4.1 basic_ios constructors .........620
+27.4.4.2 Member functions ......................621
+27.4.4.3 basic_ios iostate flags functions ...................................622
+27.4.5 ios_base manipulators .............623
+27.4.5.1 fmtflags manipulators ..........623
+27.4.5.2 adjustfield manipulators ...624
+27.4.5.3 basefield manipulators ........625
+27.4.5.4 floatfield manipulators .....625
+27.5 Stream buffers..................................625
+27.5.1 Stream buffer requirements ..........626
+27.5.2 Class template basic_streambuf<charT,traits> .........626
+27.5.2.1 basic_streambuf constructors ............................................628
+27.5.2.2 basic_streambuf public member functions .......................629
+27.5.2.2.1 Locales ....................................629
+27.5.2.2.2 Buffer management and positioning ........................................629
+27.5.2.2.3 Get area ...................................629
+27.5.2.2.4 Putback ...................................630
+27.5.2.2.5 Put area ...................................630
+27.5.2.3 basic_streambuf protected member functions...................630
+27.5.2.3.1 Get area access ........................630
+27.5.2.3.2 Put area access ........................631
+27.5.2.4 basic_streambuf virtual functions .....................................631
+27.5.2.4.1 Locales ....................................631
+27.5.2.4.2 Buffer management and positioning ........................................631
+27.5.2.4.3 Get area ...................................632
+27.5.2.4.4 Putback ...................................633
+27.5.2.4.5 Put area ...................................634
+27.6 Formatting and manipulators ...........635
+27.6.1 Input streams .................................636
+27.6.1.1 Class template basic_istream.............................................636
+27.6.1.1.1 basic_istream constructors..............................................638
+27.6.1.1.2 Class basic_istream::sentry .....................................638
+27.6.1.2 Formatted input functions ..........639
+27.6.1.2.1 Common requirements............639
+27.6.1.2.2 Arithmetic Extractors..............639
+27.6.1.2.3 basic_istream::operator>> .....................................640
+27.6.1.3 Unformatted input functions ......641
+27.6.1.4 Standard basic_istream manipulators ................................645
+27.6.1.5 Class template basic_iostream ..........................................646
+27.6.1.5.1 basic_iostream constructors ...........................................646
+27.6.1.5.2 basic_iostream destructor...............................................646
+27.6.2 Output streams ..............................646
+27.6.2.1 Class template basic_ostream.............................................646
+© ISO/IEC 2003 — All rights reserved
+ xxiii
+ISO/IEC 14882:2003(E)
+27.6.2.2 basic_ostream constructors648
+27.6.2.3 Class basic_ostream::sentry ........................................648
+27.6.2.4 basic_ostream seek members .............................................649
+27.6.2.5 Formatted output functions ........650
+27.6.2.5.1 Common requirements............650
+27.6.2.5.2 Arithmetic Inserters ................650
+27.6.2.5.3 basic_ostream::operator<< .....................................650
+27.6.2.5.4 Character inserter function templates ......................................651
+27.6.2.6 Unformatted output functions ....652
+27.6.2.7 Standard basic_ostream manipulators ................................653
+27.6.3 Standard manipulators ..................653
+27.7 String-based streams ........................655
+27.7.1 Class template basic_stringbuf...........................................656
+27.7.1.1 basic_stringbuf constructors ............................................657
+27.7.1.2 Member functions ......................657
+27.7.1.3 Overridden virtual functions ......658
+27.7.2 Class template basic_istringstream .................................660
+27.7.2.1 basic_istringstream constructors ..................................660
+27.7.2.2 Member functions ......................661
+27.7.3 Class basic_ostringstream ................................................661
+27.7.3.1 basic_ostringstream constructors ..................................662
+27.7.3.2 Member functions ......................662
+27.7.4 Class template basic_stringstream....................................662
+27.7.5 basic_stringstream constructors ....663
+27.7.6 Member functions .........................663
+27.8 File-based streams ...........................664
+27.8.1 File streams ...................................664
+27.8.1.1 Class template basic_filebuf.............................................664
+27.8.1.2 basic_filebuf constructors665
+27.8.1.3 Member functions ......................666
+27.8.1.4 Overridden virtual functions ......667
+27.8.1.5 Class template basic_ifstream ..........................................669
+27.8.1.6 basic_ifstream constructors ..............................................670
+27.8.1.7 Member functions ......................670
+27.8.1.8 Class template basic_ofstream ..........................................671
+27.8.1.9 basic_ofstream constructors ..............................................671
+27.8.1.10 Member functions ....................672
+27.8.1.11 Class template basic_fstream...........................................672
+27.8.1.12 basic_fstream constructors...............................................673
+27.8.1.13 Member functions ....................673
+27.8.2 C Library files ...............................673
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
