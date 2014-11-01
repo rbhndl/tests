@@ -1,0 +1,8 @@
+Используемая литература:
+http://computersbooks.net/books/language-programmer/stracetrup-b/2008/files/yazikprogrammirovaniya2008.djvu
+https://code.google.com/p/openassist/downloads/detail?name=C%2B%2B%20Standard%20-%20ANSI%20ISO%20IEC%2014882%202003.pdf
+  
+Преобразование в текстовый слой:
+djvutxt 'Язык программирования C++ Специальное издание.djvu' 'Язык программирования C++ Специальное издание.txt'
+pdf2txt -t text -o 'C++ Standard - ANSI ISO IEC 14882 2003.txt' 'C++ Standard - ANSI ISO IEC 14882 2003.pdf' 
+ 
